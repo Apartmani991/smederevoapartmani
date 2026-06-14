@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Luxury Apartments 88 — Smederevo, Serbia" },
-      { name: "description", content: "Comfortable, fully equipped apartments in the heart of Smederevo. Perfect for tourists, families, couples and business travelers. Book direct and save." },
+      { title: "Luxury Apartments 88 — Smederevo, Srbija" },
+      { name: "description", content: "Udobni, potpuno opremljeni apartmani u centru Smedereva. Idealno za turiste, porodice, parove i poslovne goste. Rezervišite direktno i uštedite." },
       { property: "og:title", content: "Luxury Apartments 88 — Smederevo" },
-      { property: "og:description", content: "Modern, fully equipped apartments in Smederevo, Serbia. Book direct and save." },
+      { property: "og:description", content: "Moderni, potpuno opremljeni apartmani u Smederevu, Srbija." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -99,7 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="sr">
       <head>
         <HeadContent />
       </head>
