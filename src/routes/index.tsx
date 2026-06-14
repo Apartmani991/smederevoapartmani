@@ -10,9 +10,13 @@ import { Textarea } from "@/components/ui/textarea";
 
 import hero from "@/assets/hero-apartment.jpg";
 import bedroom from "@/assets/bedroom.jpg";
-import kitchen from "@/assets/kitchen.jpg";
-import bathroom from "@/assets/bathroom.jpg";
-import living from "@/assets/living.jpg";
+import bedroom2 from "@/assets/bedroom2.jpg";
+import familyRoom from "@/assets/family-room.jpg";
+import terrace from "@/assets/terrace.jpg";
+import pool from "@/assets/pool.jpg";
+import dining from "@/assets/dining.jpg";
+import bar from "@/assets/bar.jpg";
+import logo from "@/assets/logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,11 +35,11 @@ export const Route = createFileRoute("/")({
 const apartments = [
   {
     name: "Deluxe Studio",
-    image: living,
+    image: bedroom2,
     guests: 2,
     beds: 1,
     price: 45,
-    features: ["Pogled na grad", "Smart TV", "Radni kutak", "Aparat za espreso"],
+    features: ["Udoban bračni krevet", "Smart TV", "Klima uređaj", "Privatno kupatilo"],
   },
   {
     name: "Premium Jednosoban",
@@ -43,28 +47,28 @@ const apartments = [
     guests: 3,
     beds: 2,
     price: 65,
-    features: ["King krevet", "Potpuno opremljena kuhinja", "Kauč na razvlačenje", "Besplatan parking"],
+    features: ["King krevet", "Sopstvena terasa", "Klima i grejanje", "Besplatan parking"],
   },
   {
     name: "Porodični Apartman",
-    image: kitchen,
+    image: familyRoom,
     guests: 5,
     beds: 3,
     price: 95,
-    features: ["2 spavaće sobe", "Dnevna i trpezarija", "Porodična kuhinja", "Krevetac na zahtev"],
+    features: ["Prostrana spavaća soba", "Krevetac na zahtev", "Dodatni ležajevi", "Pogled na prirodu"],
   },
 ];
 
 const amenities = [
   { icon: Wifi, label: "Brzi Wi-Fi" },
   { icon: Car, label: "Besplatan parking" },
-  { icon: Coffee, label: "Opremljena kuhinja" },
+  { icon: Coffee, label: "Bar i recepcija" },
   { icon: Tv, label: "Smart TV + Netflix" },
   { icon: Wind, label: "Klima i grejanje" },
   { icon: Clock, label: "Samostalni check-in 24/7" },
 ];
 
-const gallery = [hero, bedroom, kitchen, bathroom, living];
+const gallery = [hero, bedroom, terrace, pool, bar, dining, familyRoom, bedroom2];
 
 function Index() {
   const [form, setForm] = useState({
@@ -99,10 +103,13 @@ function Index() {
 
       {/* Nav */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <a href="#top" className="flex items-baseline gap-2">
-            <span className="font-display text-2xl font-semibold tracking-tight">LA</span>
-            <span className="text-gradient-gold font-display text-2xl font-semibold">88</span>
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logo} alt="Luxury Apartments 88 logo" className="h-10 w-10 object-contain" />
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-display text-xl font-semibold tracking-tight">Luxury Apartments</span>
+              <span className="text-gradient-gold font-display text-xl font-semibold">88</span>
+            </div>
           </a>
           <nav className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
             <a href="#apartments" className="hover:text-foreground transition">Apartmani</a>
@@ -121,16 +128,19 @@ function Index() {
       <section id="top" className="relative min-h-screen flex items-end overflow-hidden">
         <img
           src={hero}
-          alt="Luksuzni apartman u Smederevu"
+          alt="Luxury Apartments 88 — eksterijer u Smederevu"
           width={1920}
           height={1280}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30" />
         <div className="relative max-w-7xl mx-auto px-6 pb-24 pt-40 w-full text-white">
-          <p className="hairline text-sm uppercase tracking-[0.25em] text-[oklch(0.86_0.08_82)] mb-6">
-            Smederevo · Srbija
-          </p>
+          <div className="flex items-center gap-3 mb-6">
+            <img src={logo} alt="" className="h-12 w-12 object-contain drop-shadow-lg" />
+            <p className="hairline text-sm uppercase tracking-[0.25em] text-[oklch(0.86_0.08_82)]">
+              Smederevo · Srbija
+            </p>
+          </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.05] max-w-4xl">
             Vaš dom u <em className="text-gradient-gold not-italic font-medium">Smederevu</em>, stvoren za udobnost.
           </h1>
@@ -199,7 +209,7 @@ function Index() {
           <div>
             <p className="hairline text-sm uppercase tracking-[0.25em] text-muted-foreground mb-4">Uključeno</p>
             <h2 className="font-display text-4xl md:text-5xl font-light leading-tight">Sve što vam treba, <em className="text-gradient-gold not-italic font-medium">ništa suvišno.</em></h2>
-            <p className="mt-5 text-muted-foreground text-lg">Od samostalnog check-ina u bilo koje doba do potpuno opremljene kuhinje — svaki boravak je osmišljen da bude bezbrižan.</p>
+            <p className="mt-5 text-muted-foreground text-lg">Od samostalnog check-ina u bilo koje doba do bazena, terase i bara — svaki boravak je osmišljen da bude bezbrižan.</p>
             <div className="mt-10 grid grid-cols-2 gap-5">
               {amenities.map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-3 p-4 bg-card rounded-xl">
@@ -212,8 +222,8 @@ function Index() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <img src={bathroom} alt="Mermerno kupatilo" loading="lazy" className="rounded-2xl aspect-[3/4] object-cover shadow-[var(--shadow-soft)]" />
-            <img src={kitchen} alt="Potpuno opremljena kuhinja" loading="lazy" className="rounded-2xl aspect-[3/4] object-cover shadow-[var(--shadow-soft)] mt-12" />
+            <img src={pool} alt="Bazen i ležaljke" loading="lazy" className="rounded-2xl aspect-[3/4] object-cover shadow-[var(--shadow-soft)]" />
+            <img src={terrace} alt="Terasa sa pogledom" loading="lazy" className="rounded-2xl aspect-[3/4] object-cover shadow-[var(--shadow-soft)] mt-12" />
           </div>
         </div>
       </section>
@@ -228,11 +238,11 @@ function Index() {
             </div>
           </div>
           <div className="grid grid-cols-6 grid-rows-2 gap-4 h-[600px]">
-            <img src={gallery[0]} alt="Dnevna soba" loading="lazy" className="col-span-3 row-span-2 w-full h-full object-cover rounded-2xl" />
+            <img src={gallery[0]} alt="Eksterijer" loading="lazy" className="col-span-3 row-span-2 w-full h-full object-cover rounded-2xl" />
             <img src={gallery[1]} alt="Spavaća soba" loading="lazy" className="col-span-2 w-full h-full object-cover rounded-2xl" />
-            <img src={gallery[2]} alt="Kuhinja" loading="lazy" className="col-span-1 w-full h-full object-cover rounded-2xl" />
-            <img src={gallery[3]} alt="Kupatilo" loading="lazy" className="col-span-1 w-full h-full object-cover rounded-2xl" />
-            <img src={gallery[4]} alt="Pogled" loading="lazy" className="col-span-2 w-full h-full object-cover rounded-2xl" />
+            <img src={gallery[2]} alt="Terasa" loading="lazy" className="col-span-1 w-full h-full object-cover rounded-2xl" />
+            <img src={gallery[3]} alt="Bazen" loading="lazy" className="col-span-1 w-full h-full object-cover rounded-2xl" />
+            <img src={gallery[4]} alt="Bar" loading="lazy" className="col-span-2 w-full h-full object-cover rounded-2xl" />
           </div>
         </div>
       </section>
@@ -313,9 +323,12 @@ function Index() {
       <footer id="contact" className="bg-primary text-primary-foreground py-16 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
           <div>
-            <div className="flex items-baseline gap-2">
-              <span className="font-display text-3xl font-semibold">LA</span>
-              <span className="text-gradient-gold font-display text-3xl font-semibold">88</span>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Luxury Apartments 88" className="h-12 w-12 object-contain" />
+              <div className="flex items-baseline gap-1.5">
+                <span className="font-display text-2xl font-semibold">Luxury Apartments</span>
+                <span className="text-gradient-gold font-display text-2xl font-semibold">88</span>
+              </div>
             </div>
             <p className="mt-4 text-primary-foreground/70 text-sm max-w-xs">Luxury Apartments 88 — udobni, potpuno opremljeni apartmani u Smederevu, Srbija.</p>
           </div>
